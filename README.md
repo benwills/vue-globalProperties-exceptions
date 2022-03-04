@@ -15,7 +15,17 @@
    - https://github.com/vuejs/core/issues/4403
 
 
-# Why this exists:
+# Building this Project to Modify/Test it:
+
+`npm create vite@latest`
+- vue
+- vue-ts
+
+`npm install`
+
+`npm run dev`
+
+# The Problem:
 
 When trying to figure out how to add global state/functionality to an
 application, it may be tempting to look at the Plugin documentation and
