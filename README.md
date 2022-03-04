@@ -8,7 +8,7 @@
       - OR : Provide/Inject
 
 
-## Recommended: Use Provide/Inject
+### Recommended: Use Provide/Inject
 
  Referenced in this issue is the suggestion that Provide/Inject is more 
  along the lines of what is standard practice:
