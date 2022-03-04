@@ -1,11 +1,32 @@
-# Vue 3 + Typescript + Vite
+# What to take away from this:
+  - If you need access to a function/method:
+    - Only in the template:
+      - Use: globalProperties
+      - OR : Provide/Inject
+    - In setup (or/and the template):
+      - Add an object on globalProperties with the function/method
 
-This template should help get you started developing with Vue 3 and Typescript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+# Why this exists:
 
-## Recommended IDE Setup
+   When trying to figure out how to add global state/functionality to an
+   application, it may be tempting to look at the Plugin documentation and
+   believe you can attach functions/methods to globalProperties.
+   You can...BUT. You can not use those functions/methods in script setup.
 
-- [VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=johnsoncodehk.volar)
+   It took me longer than it should have to figure that out. I eventually
+   found this issue that describes the nature of this in more detail:
+   - https://github.com/vuejs/core/issues/4403
 
-## Type Support For `.vue` Imports in TS
+   Therefore...
 
-Since TypeScript cannot handle type information for `.vue` imports, they are shimmed to be a generic Vue component type by default. In most cases this is fine if you don't really care about component prop types outside of templates. However, if you wish to get actual prop types in `.vue` imports (for example to get props validation when using manual `h(...)` calls), you can enable Volar's `.vue` type support plugin by running `Volar: Switch TS Plugin on/off` from VSCode command palette.
+   There are limitations to the scope of how you can use globalProperties.
+   I have put this together to demonstrate those limitations, including
+   some things you might be tempted to try, like using 'this.' in your
+   script setup.
+
+   Finally, while this is called "vue-plugin-exceptions", it is more
+   specifically related to the scope limitations of globalProperties.
+
+   I've chosen to keep the name relating to plugins, as this is where I
+   encountered it, and it also tests the issue in the context of plugins
+   as well.
